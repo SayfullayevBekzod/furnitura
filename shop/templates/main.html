@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+{% include 'head.html' %}
+<body>
+    {% include 'navbar.html' %}
+    {% include 'home.html' %}
+    {% include 'product.html' %}
+    {% include 'footer.html' %}
+    
+    <script src="{% static 'c/js/bootstrap.bundle.min.js' %}"></script>
+    <script src="{% static 'c/js/tiny-slider.js' %}"></script>
+    <script src="{% static 'c/js/custom.js' %}"></script>
+</body>
+</html>

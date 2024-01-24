@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/css/swiper.min.css">
+    <link rel="stylesheet" href="{% static 'c/css/more.css' %}">
+    <title>Document</title>
+</head>
+
+    <!------------------------------------------>
+<!--                                      -->                    
+<!--  Best if Viewed in full screen mode  -->
+<!--   Try swiping with touchpad/mouse    -->
+<!--                                      -->
+<!------------------------------------------>
+
+<body class="container">
+    <!-- Slider main container-->
+    <div class="swiper-container">
+      <!-- Additional required wrapper-->
+      <div class="swiper-wrapper">
+        <!-- Slides-->
+        {% for more in mores %}
+        <div class="swiper-slide">
+          <div class="card">
+            <div class="card__header">
+              <div class="header-in-card">
+                <div class="header-in-card__menu">
+                  <div class="menu">
+                    <div class="menu__icon"><span></span><span></span><span></span></div><a href="{% url 'main' %}" target="_blank" class="menu__item">Home</a><a href="{% url 'shop' %}" target="_blank" class="menu__item">Shop</a><a href="{% url 'about' %}" target="_blank" class="menu__item">About</a><a href="http://" target="_blank" class="menu__item">Contact</a>
+                  </div>
+                </div>
+                <div class="header-in-card__share-and-like">
+                  <div class="share-block">
+                    <div class="share-block__share-icon"><span></span><span></span><span></span><span></span><span></span></div>
+                    <div class="share-block__facebook-icon"></div>
+                    <div class="share-block__twitter-icon"></div>
+                  </div>
+                  <div class="like-block">
+                    <div class="like-block__like-icon"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="card__body">
+              <h1 class="card-title">{{more.name}}</h1>
+              <div class="card-meta">
+                <div class="card-meta__title">Tags</div>
+                <div class="card-meta__line"></div>
+                <div class="card-meta__quantity">22.345 images</div>
+              </div>
+              <div class="card-tags"><a href="#" target="_blank" class="card-tags__item">{{more.type}}</a><a href="#" target="_blank" class="card-tags__item">{{more.name}}</a></div>
+            </div><img src="{{more.foto.url}}" alt="" class="card__image">
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.3.1/js/swiper.jquery.min.js"></script>
+    <script src="{% static 'c/js/more.js' %}"></script>
+  </body>
+
+</html>

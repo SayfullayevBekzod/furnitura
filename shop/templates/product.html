@@ -1,0 +1,33 @@
+{% load static %}
+		<!-- Start Product Section -->
+		<div class="product-section">
+			<div class="container">
+				<div class="row">
+                    {% for pro in pros %}
+					<!-- Start Column 1 -->
+					<div class="col-md-12 col-lg-3 mb-5 mb-lg-0">
+						<h2 class="mb-4 section-title">{{pro.title}}</h2>
+						<p class="mb-4">{{pro.body}}</p>
+						<p><a href="{% url 'shop' %}" class="btn">Explore</a></p>
+					</div> 
+					<!-- End Column 1 -->
+                    {% endfor %}
+                    {% for product in products %}
+					<!-- Start Column 2 -->
+					<div class="col-12 col-md-4 col-lg-3 mb-5 mb-md-0">
+						<a class="product-item" href="{% url 'cart' %}">
+							<img src="{{product.foto.url}}" class="img-fluid product-thumbnail">
+							<h3 class="product-title">{{product.name}}</h3>
+							<strong class="product-price">${{product.price}}</strong>
+
+							<span class="icon-cross">
+								<img src="{% static 'c/images/cross.svg' %}" class="img-fluid">
+							</span>
+						</a>
+					</div> 
+					<!-- End Column 2 -->
+                    {% endfor %}
+				</div>
+			</div>
+		</div>
+		<!-- End Product Section -->
